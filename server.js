@@ -60,13 +60,6 @@ app.get('/api/notes', (req, res) => {
 app.post('/api/notes', (req, res) => {
     // set id based on what the next index of the array will be
     req.body.id = notes.length.toString();
-  
-    if (!validateNote(req.body)) {
-      res.status(400).send('The note is not properly formatted.');
-    } else {
-      const note = createNewNote(req.body, notes);
-      res.json(note);
-    }
   });
 
 //add it to the db.json file
